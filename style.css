@@ -1,0 +1,414 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+li {
+	list-style: none;
+}
+.text-primary {
+	color: #fcd305;
+}
+body {
+	font-family: 'Roboto', sans-serif;
+	background: url('TODOBG.jpeg') no-repeat center center /cover;
+	min-height: 100vh;
+	position: relative;
+	z-index: 10;
+}
+
+body::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.6);
+	z-index: -1;
+}
+
+.nav {
+	height: 10vh;
+	text-align: center;
+	width: 100%;
+	color: #ffff;
+	background: #353535;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1.5rem;
+}
+
+nav > div:first-child {
+	flex: 1;
+	text-align-last: center;
+}
+.container-form {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	min-width: 100%;
+	min-height: 15vh;
+	margin: 30px 0;
+	flex-wrap: unset;
+}
+
+.form form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+}
+
+.form form .input-todo {
+	padding: 1rem;
+	background: #f4f4f4;
+	border: none;
+	font-size: 1rem;
+	box-shadow: -1px 1px 9px 6px #353535;
+	margin: 0;
+}
+
+.form form .input-todo:focus {
+	outline: none;
+	border: 0;
+}
+
+.form .btn-add-todo {
+	padding: 1rem;
+	background: #353535;
+	border: none;
+	font-size: 1rem;
+	margin: 0;
+	cursor: pointer;
+	transition: all 0.5s ease;
+	color: #f4f4f4;
+}
+.form .btn-add-todo {
+	outline: none;
+	border: 0;
+}
+
+.form .btn-add-todo:hover {
+	color: #fcd305;
+}
+
+.select select {
+	width: 10rem;
+	margin: 0 0 0 10px;
+	box-shadow: none;
+	border: none;
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	padding: 1rem;
+	font-size: 1rem;
+	background: #f4f4f4;
+	transition: all 0.3s ease-in;
+}
+
+.select select:focus {
+	outline: none !important;
+	box-shadow: none !important;
+}
+.select select:hover {
+	color: #f4f4f4;
+	background: #353535;
+}
+
+.select select:focus option {
+	background-color: #353535;
+	color: #f4f4f4;
+	outline: none !important;
+	border: none !important;
+	box-shadow: none !important;
+}
+.alert-warning {
+	width: 30%;
+	text-align: center;
+	color: #f4f4f4;
+	margin: 1rem auto;
+	transition: all 2s ease-in;
+	background: #fc0303;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	border-radius: 10px;
+}
+
+.alert-success {
+	width: 30%;
+	text-align: center;
+	color: #f4f4f4;
+	margin: 1rem auto;
+	transition: all 2s ease-in;
+	background: #066124;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	border-radius: 10px;
+}
+
+.alarm-warning {
+	width: 30%;
+	text-align: center;
+	color: #f4f4f4;
+	margin: 1rem auto;
+	transition: all 2s ease-in;
+	background: #fcd305;
+	font-size: 1.5rem;
+	padding: 0.5rem;
+	border-radius: 10px;
+}
+
+.container-todos {
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.todo-list {
+	min-width: 30%;
+	z-index: 10;
+	transition: all 3s ease;
+}
+
+.todo-list > div {
+	background-color: #353535;
+	margin: 0.5rem;
+	color: #f4f4f4;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem;
+	transition: all 0.5s ease-in;
+	z-index: 10;
+	border: 0.5px solid #cccccc;
+	/* box-shadow: -1px 1px 9px 6px #353535; */
+}
+
+.todo-list > div .todo-item {
+	flex: 1;
+	padding: 0 0.5rem;
+}
+
+.delete-btn,
+.complete-btn {
+	color: white;
+	background: #353535;
+	border: none;
+	padding: 1rem;
+	cursor: pointer;
+	font-size: 1rem;
+	margin: 0.2rem;
+	border-radius: 5px;
+	transition: all 0.2s ease-in;
+}
+
+.complete-btn {
+	background: #fcd305;
+}
+
+.delete-btn {
+	/* background: #696665; */
+	background: #292828;
+}
+
+.complete-btn:focus {
+	outline: none;
+}
+
+.delete-btn:focus {
+	outline: none;
+}
+
+.delete-btn:hover {
+	color: #fc0303;
+}
+.complete-btn:hover {
+	color: #066124;
+}
+
+.fa-trash,
+.fa-check {
+	pointer-events: none;
+}
+
+.fall {
+	transform: translateY(8rem) rotateZ(20deg);
+	opacity: 0;
+}
+
+.completed {
+	text-decoration: line-through;
+	opacity: 0.5;
+}
+
+.btn-delete-all {
+	background: #353535;
+	color: #f4f4f4;
+	padding: 1rem;
+	font-size: 1rem;
+	margin: 1rem;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease-in;
+}
+
+.btn-delete-all:focus {
+	outline: none;
+}
+
+.btn-delete-all:hover {
+	color: #fcd305;
+}
+
+.deleted {
+	transform: translateX(-500%)rotate(360deg);
+}
+
+.todo-div {
+	transition: all 5s ease-in;
+}
+
+@media (max-device-width: 400px) {
+	.nav {
+		font-size: 14px;
+	}
+
+	.btn-delete-all {
+		padding: 0.5rem;
+		font-size: 14px;
+	}
+
+	.alert-success {
+		font-size: 14px;
+		padding: 0.5rem;
+		width: 100%;
+	}
+
+	.alert-warning {
+		font-size: 14px;
+		padding: 0.5rem;
+		width: 100%;
+	}
+
+	.alarm-warning {
+		font-size: 14px;
+		padding: 0.5rem;
+		width: 100%;
+	}
+
+	.form form .input-todo {
+		padding: 0.5rem;
+		font-size: 14px;
+	}
+
+	.form form .btn-add-todo {
+		padding: 0.5rem;
+		font-size: 14px;
+	}
+
+	.container-form {
+		display: block;
+	}
+
+	.select select {
+		padding: 0.5rem;
+		display: block;
+		margin: 20px auto;
+		font-size: 14px;
+	}
+
+	.container-todos {
+		margin-top: 90px;
+	}
+
+	.todo-list {
+		min-width: 100%;
+	}
+
+	.todo-list > div {
+		font-size: 14px;
+		padding: 0.5rem;
+	}
+
+	.delete-btn,
+	.complete-btn {
+		padding: 0.5rem;
+		font-size: 14px;
+	}
+}
+
+@media (max-device-width: 769px) and (min-device-width: 400px) {
+	.nav {
+		font-size: 18px;
+	}
+
+	.btn-delete-all {
+		padding: 0.5rem;
+		font-size: 18px;
+	}
+
+	.alert-success {
+		font-size: 18px;
+		padding: 1rem;
+		width: 100%;
+	}
+
+	.alert-warning {
+		font-size: 18px;
+		padding: 1rem;
+		width: 100%;
+	}
+
+	.alarm-warning {
+		font-size: 18px;
+		padding: 1rem;
+		width: 100%;
+	}
+
+	.form form .input-todo {
+		padding: 1rem;
+		font-size: 18px;
+	}
+
+	.form form .btn-add-todo {
+		padding: 1rem;
+		font-size: 18px;
+	}
+
+	.container-form {
+		display: block;
+	}
+
+	.select select {
+		padding: 1rem;
+		display: block;
+		margin: 20px auto;
+		font-size: 18px;
+	}
+
+	.container-todos {
+		margin-top: 100px;
+	}
+
+	.todo-list {
+		min-width: 100%;
+	}
+
+	.todo-list > div {
+		font-size: 18px;
+		padding: 1rem;
+	}
+
+	.delete-btn,
+	.complete-btn {
+		padding: 1rem;
+		font-size: 18px;
+	}
+}

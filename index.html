@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicația Todo List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div> 
+        <h1 class="l-heading">Todo List <span class="text-primary">App</span></h1>
+        </div>
+        <div> 
+        <button class="btn btn-delete-all"><i class="fas fa-trash"></i> Sterge tot</button>
+        </div>
+    </nav>
+
+    <div class="message"></div>
+
+    <div class="container container-form">
+        <div class="form">
+            <form>
+                <input type="text" class="input-todo">
+                <button class="btn btn-add-todo" type="submit">
+                    <i class="fas fa-plus"></i>
+                Adaugare Todo</button>
+            </form>
+        </div>
+        <div class="select">
+            <select name="todos" class="filter-todos">
+                <option value="all">Tot</option>
+                <option value="completed">Complet</option>
+                <option value="uncompleted">Incomplet</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="container-todos">
+        <ul class="todo-list"></ul>
+    </div>
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
